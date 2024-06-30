@@ -1,5 +1,5 @@
 {
-  "name": "automattic/woocommerce",
+  "name": "josalba/woocommerce",
   "description": "A PHP wrapper for the WooCommerce REST API",
   "type": "library",
   "license": "MIT",
@@ -7,6 +7,10 @@
     {
       "name": "Claudio Sanches",
       "email": "claudio.sanches@automattic.com"
+    },
+    {
+      "name": "josAlba",
+      "email": "josalba@icloud.com"
     }
   ],
   "minimum-stability": "dev",
@@ -15,14 +19,17 @@
     "WooCommerce"
   ],
   "require": {
-    "php": ">= 7.1.0",
+    "php": ">=8.3",
     "ext-curl": "*",
-    "ext-json": "*"
+    "ext-json": "*",
+    "guzzlehttp/guzzle": "^7.5",
+    "jms/serializer-bundle": "^5.2",
+    "doctrine/annotations": "^2.0",
+    "guzzlehttp/oauth-subscriber": "0.6.x-dev"
   },
   "require-dev": {
-    "phpunit/phpunit": "^8",
-    "squizlabs/php_codesniffer": "3.*",
-    "overtrue/phplint": "7.4.x-dev"
+    "roave/security-advisories": "dev-latest",
+    "phpunit/phpunit": "11.3.x-dev"
   },
   "autoload": {
     "psr-4": {
@@ -30,9 +37,8 @@
     }
   },
   "autoload-dev": {
-    "psr-4": { 
-      "Automattic\\WooCommerce\\LegacyTests\\": "tests/legacy-php/WooCommerce/Tests",
-      "Automattic\\WooCommerce\\Tests\\": "tests/php/WooCommerce/Tests"
+    "psr-4": {
+      "Automattic\\WooCommerce\\Tests\\": "tests/WooCommerce"
     }
   }
 }

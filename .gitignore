@@ -6,3 +6,4 @@ composer.lock
 phpcs-report.xml
 phplint-report.json
 run.php
+/tests/WooCommerce/Prod/

@@ -1,19 +1,11 @@
 <?xml version="1.0"?>
-<phpunit bootstrap="tests/php/bootstrap.php"
-         colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         verbose="true"
-         stopOnFailure="false"
-         processIsolation="false"
-         backupGlobals="false">
-        <testsuite name="all">
-            <directory>./tests/php/WooCommerce/Tests</directory>
-        </testsuite>
-    <filter>
-        <whitelist addUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">src/</directory>
-        </whitelist>
-    </filter>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="tests/bootstrap.php" colors="true" stopOnFailure="false" processIsolation="false" backupGlobals="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.3/phpunit.xsd" cacheDirectory=".phpunit.cache">
+  <testsuite name="all">
+    <directory>./tests/WooCommerce</directory>
+  </testsuite>
+  <source>
+    <include>
+      <directory suffix=".php">src/</directory>
+    </include>
+  </source>
 </phpunit>
