@@ -7,11 +7,11 @@
 namespace Automattic\WooCommerce\Products\Application;
 
 use Automattic\WooCommerce\Products\Domain\Endpoint;
-use Automattic\WooCommerce\Products\Domain\UpdateProductsBatch as UpdateProductsBatchDomain;
+use Automattic\WooCommerce\Products\Domain\UpdateVariationBatch as UpdateVariationBatchDomain;
 use Automattic\WooCommerce\Shared\Infrastructure\ClientHttp;
 use JMS\Serializer\SerializerBuilder;
 
-class UpdateProductsBatch
+class UpdateVariationBatch
 {
     public function __construct()
     {
@@ -19,14 +19,17 @@ class UpdateProductsBatch
 
     public function __invoke(
         ClientHttp $client,
-        UpdateProductsBatchDomain $updateProductsBatch
-    ): UpdateProductsBatchDomain {
+        UpdateVariationBatchDomain $updateProductsBatch,
+        int $productId
+    ): UpdateVariationBatchDomain {
+        $endpoint = str_replace('<product_id>', $productId, Endpoint::UPDATE_VARIATIONS_BATCH->value);
+
         $response = $client->post(
-            Endpoint::UPDATE_PRODUCTS_BATCH->value,
+            $endpoint,
             [],
             SerializerBuilder::create()->build()->serialize($updateProductsBatch, 'json')
         );
 
-        return SerializerBuilder::create()->build()->deserialize($response, UpdateProductsBatchDomain::class, 'json');
+        return SerializerBuilder::create()->build()->deserialize($response, UpdateVariationBatchDomain::class, 'json');
     }
 }
