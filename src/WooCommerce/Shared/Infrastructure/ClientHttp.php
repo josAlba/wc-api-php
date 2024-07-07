@@ -62,7 +62,16 @@ class ClientHttp implements ClientHttpInterface
     public function post(string $url, array $query, string $body): string
     {
         try {
-            $response = $this->client->post($url, ['query' => $query, 'body' => $body,]);
+            $response = $this->client->post(
+                $url,
+                [
+                    'query' => $query,
+                    'body' => $body,
+                    'headers' => [
+                        'Content-Type' => 'application/json',
+                    ],
+                ]
+            );
 
             return $response->getBody()->getContents();
         } catch (Throwable $exception) {
