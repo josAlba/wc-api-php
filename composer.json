@@ -25,7 +25,7 @@
     "guzzlehttp/guzzle": "^7.5",
     "jms/serializer-bundle": "^5.2",
     "doctrine/annotations": "^2.0",
-    "guzzlehttp/oauth-subscriber": "0.6.x-dev"
+    "guzzlehttp/oauth-subscriber": "0.6.0"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",

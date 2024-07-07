@@ -19,10 +19,13 @@ class ClientHttp implements ClientHttpInterface
             $this->client = new Client(
                 [
                     'base_uri' => $uri,
-                    'user' => [$consumerKey, $consumerSecret],
+                    'auth' => [$consumerKey, $consumerSecret],
                     'headers' => $headers,
+                    'verify' => false,
                 ]
             );
+
+            return;
         }
 
         $stack = HandlerStack::create();
