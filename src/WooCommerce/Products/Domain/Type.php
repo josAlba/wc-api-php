@@ -2,8 +2,8 @@
 
 namespace Automattic\WooCommerce\Products\Domain;
 
-enum Type: string
+class Type
 {
-    case VARIABLE = 'variable';
-    case SIMPLE = 'simple';
+    public const VARIABLE = 'variable';
+    public const SIMPLE = 'simple';
 }

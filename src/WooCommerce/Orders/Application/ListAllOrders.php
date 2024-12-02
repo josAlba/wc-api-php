@@ -22,7 +22,7 @@ class ListAllOrders
      */
     public function __invoke(ClientHttp $client): array
     {
-        $response = $client->get(Endpoint::LIST_ALL_ORDERS->value, []);
+        $response = $client->get(Endpoint::LIST_ALL_ORDERS, []);
 
         return SerializerBuilder::create()->build()->deserialize($response, 'array<'.Order::class.'>', 'json');
     }

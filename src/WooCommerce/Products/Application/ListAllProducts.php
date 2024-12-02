@@ -22,7 +22,7 @@ class ListAllProducts
      */
     public function __invoke(ClientHttp $client): array
     {
-        $response = $client->get(Endpoint::LIST_ALL_PRODUCTS->value, []);
+        $response = $client->get(Endpoint::LIST_ALL_PRODUCTS, []);
 
         return SerializerBuilder::create()->build()->deserialize($response, 'array<'.Product::class.'>', 'json');
     }

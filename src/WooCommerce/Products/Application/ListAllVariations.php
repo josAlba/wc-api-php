@@ -23,7 +23,7 @@ class ListAllVariations
      */
     public function __invoke(ClientHttp $client, int $productId): array
     {
-        $endpoint = str_replace('<product_id>', $productId, Endpoint::LIST_ALL_VARIATION->value);
+        $endpoint = str_replace('<product_id>', $productId, Endpoint::LIST_ALL_VARIATION);
         $response = $client->get($endpoint, []);
 
         return SerializerBuilder::create()->build()->deserialize($response, 'array<'.Variation::class.'>', 'json');

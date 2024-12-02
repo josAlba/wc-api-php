@@ -2,7 +2,7 @@
 
 namespace Automattic\WooCommerce\OAuth\Domain;
 
-Enum Endpoint: string
+class Endpoint
 {
-    case AUTHORIZE = '/wc-auth/v1/authorize';
+    public const AUTHORIZE = '/wc-auth/v1/authorize';
 }

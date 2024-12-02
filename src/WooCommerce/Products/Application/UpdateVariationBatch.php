@@ -22,7 +22,7 @@ class UpdateVariationBatch
         UpdateVariationBatchDomain $updateProductsBatch,
         int $productId
     ): UpdateVariationBatchDomain {
-        $endpoint = str_replace('<product_id>', $productId, Endpoint::UPDATE_VARIATIONS_BATCH->value);
+        $endpoint = str_replace('<product_id>', $productId, Endpoint::UPDATE_VARIATIONS_BATCH);
 
         $response = $client->post(
             $endpoint,

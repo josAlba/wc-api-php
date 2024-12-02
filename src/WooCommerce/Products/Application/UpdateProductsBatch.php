@@ -22,7 +22,7 @@ class UpdateProductsBatch
         UpdateProductsBatchDomain $updateProductsBatch
     ): UpdateProductsBatchDomain {
         $response = $client->post(
-            Endpoint::UPDATE_PRODUCTS_BATCH->value,
+            Endpoint::UPDATE_PRODUCTS_BATCH,
             [],
             SerializerBuilder::create()->build()->serialize($updateProductsBatch, 'json')
         );

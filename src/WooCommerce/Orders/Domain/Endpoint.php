@@ -2,7 +2,7 @@
 
 namespace Automattic\WooCommerce\Orders\Domain;
 
-enum Endpoint: string
+class Endpoint
 {
-    case LIST_ALL_ORDERS = '/wp-json/wc/v3/orders';
+    public const LIST_ALL_ORDERS = '/wp-json/wc/v3/orders';
 }
