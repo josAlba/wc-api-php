@@ -26,4 +26,14 @@ class ListAllOrders
 
         return SerializerBuilder::create()->build()->deserialize($response, 'array<'.Order::class.'>', 'json');
     }
+
+    /**
+     * @return array<Order>
+     */
+    public function byDateTime(ClientHttp $client, \DateTime $dateTime): array
+    {
+        $response = $client->get(Endpoint::LIST_ALL_ORDERS, ['after' => $dateTime->format('Y-m-d\TH:i:s')]);
+
+        return SerializerBuilder::create()->build()->deserialize($response, 'array<'.Order::class.'>', 'json');
+    }
 }
